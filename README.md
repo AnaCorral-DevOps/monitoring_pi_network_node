@@ -1,36 +1,35 @@
-
 # 🚀 Pi Network Node Monitoring Script
 
-Automatiza el monitoreo de tu nodo de **Pi Network** y recibe notificaciones en **Telegram** en tiempo real.
+Automate the monitoring of your **Pi Network** node and receive real-time notifications on **Telegram**.
 
 ---
 
-## 📋 Requisitos
+## 📋 Requirements
 
-Para ejecutar el script en **Windows**, asegúrate de tener lo siguiente:
+To run the script on **Windows**, make sure you have the following:
 
-### 🐍 1. Python Instalado
+### 🐍 1. Python Installed
 
-1. Descarga e instala Python desde [python.org](https://www.python.org/downloads/).
-2. Durante la instalación, **marca la casilla** `"Add Python to PATH"`.
-3. Verifica la instalación ejecutando en la terminal:
+1. Download and install Python from [python.org](https://www.python.org/downloads/).
+2. During installation, **check the box** `"Add Python to PATH"`.
+3. Verify the installation by running in the terminal:
 
    ```bash
    python --version
    ```
 
-✅ Debería mostrar algo como: `Python 3.x.x`.
+✅ It should display something like: `Python 3.x.x`.
 
 ---
 
-### 📦 2. Librerías Requeridas
+### 📦 2. Required Libraries
 
-El script utiliza las siguientes librerías:
+The script uses the following libraries:
 
-- ✅ `os`, `sys`, `json`, `datetime` (Incluidas por defecto en Python).
-- ✅ `requests` (Se debe instalar manualmente).
+- ✅ `os`, `sys`, `json`, `datetime` (Included by default in Python).
+- ✅ `requests` (Must be installed manually).
 
-Para instalar `requests`, ejecuta:
+To install `requests`, run:
 
 ```bash
 pip install requests
@@ -38,11 +37,11 @@ pip install requests
 
 ---
 
-## 🚀 Primeros Pasos
+## 🚀 Getting Started
 
-### 📂 1. Clonar el Repositorio
+### 📂 1. Clone the Repository
 
-Copia este repositorio a tu máquina local:
+Copy this repository to your local machine:
 
 ```bash
 git clone https://github.com/AnaCorral-DevOps/monitoring_pi_network_node.git
@@ -50,44 +49,44 @@ git clone https://github.com/AnaCorral-DevOps/monitoring_pi_network_node.git
 
 ---
 
-## 🤖 2. Crear un Bot en Telegram (BotFather)
+## 🤖 2. Create a Telegram Bot (BotFather)
 
-1. Abre **Telegram** y busca `@BotFather`.
-2. Inicia una conversación y usa el comando:
+1. Open **Telegram** and search for `@BotFather`.
+2. Start a conversation and use the command:
 
    ```bash
    /newbot
    ```
 
-3. Sigue las instrucciones:
-   - Asigna un nombre a tu bot (e.g., `MyPythonBot`).
-   - Elige un **nombre de usuario** que termine en `bot` (e.g., `MyPythonBot_bot`).
+3. Follow the instructions:
+   - Assign a name to your bot (e.g., `MyPythonBot`).
+   - Choose a **username** that ends with `bot` (e.g., `MyPythonBot_bot`).
 
-4. Guarda el **token de acceso** que te proporciona BotFather. 🚨
+4. Save the **access token** provided by BotFather. 🚨
 
 ---
 
-## 📌 3. Obtener el `TELEGRAM_CHAT_ID`
+## 📌 3. Get the `TELEGRAM_CHAT_ID`
 
-1. Escribe cualquier mensaje a tu bot (`/start` es suficiente).
-2. Abre tu navegador e ingresa:
+1. Send any message to your bot (`/start` is enoug).
+2. Open your browser and enter:
 
    ```
    https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates
    ```
 
-   Reemplaza `<YOUR_TOKEN>` con el token que te dio BotFather.
+   Replace `<YOUR_TOKEN>` with the token provided by BotFather.
 
-3. En la respuesta JSON, busca el campo `id` dentro del objeto `chat`.
+3. In the JSON response, look for the `id` field inside the `chat` object.
 
-✅ Ese es tu **`TELEGRAM_CHAT_ID`**.
+✅ That is your **`TELEGRAM_CHAT_ID`**.
 
 ---
 
-## 🛠️ 4. Crear el Archivo de Configuración
+## 🛠️ 4. Create the Configuration File
 
-1. Crea un archivo llamado **`config.json`** en el mismo directorio del script.
-2. Añade el siguiente contenido (sustituye con tus valores):
+1. Create a file named **`config.json`** in the same directory as the script.
+2. Add the following content (replace with your values):
 
 ```json
 {
@@ -96,7 +95,7 @@ git clone https://github.com/AnaCorral-DevOps/monitoring_pi_network_node.git
 }
 ```
 
-🔍 **Ejemplo:**
+🔍 **Example:**
 
 ```json
 {
@@ -107,18 +106,18 @@ git clone https://github.com/AnaCorral-DevOps/monitoring_pi_network_node.git
 
 ---
 
-## 📜 5. Generar el Archivo `.bat`
+## 📜 5. Generate the `.bat` File
 
-Desde el directorio del repositorio clonado, ejecuta:
+From the cloned repository directory, run:
 
 ```bash
 python create_monitor_docker.py
 ```
 
-### ✅ ¿Qué hace este comando?
+### ✅ What does this command do?
 
-- Crea un archivo **`.bat`** que automatiza la ejecución del script.
-- El archivo `.bat` contendrá:
+- Creates a **`.bat`**  file that automates the execution of the script.
+- The `.bat` file will contain:
 
 ```bash
 @echo off
@@ -127,55 +126,51 @@ python create_monitor_docker.py
 
 Donde:
 
-- **[Python Path]:** Ruta del intérprete de Python (detectado automáticamente).
-- **[Script Path]:** Ruta al script `monitor_docker_pi.py`.
+- **[Python Path]:** Path to the Python interpreter (automatically detected).
+- **[Script Path]:** Path to the `monitor_docker_pi.py` script.
 
 ---
 
-## 📅 6. Configurar en el Programador de Tareas de Windows
+## 📅 6. Configure in Windows Task Scheduler
 
-### 📌 Paso 1: Abrir el Programador de Tareas
+### 📌 Step 1: Open Task Scheduler
 
-1. Presiona `Win + S` y busca **"Programador de Tareas"**.
-2. Haz clic en **Crear Tarea**.
+1. Press  `Win + S` and search for **"Task Scheduler"**.
+2. Click on **Create Task**.
 
 ---
 
-### ⚙️ Paso 2: Configurar la Tarea
+### ⚙️ Step 2: Configure the Task
 
 1. **General:**
-   - Nombre: `Monitor Docker PI`.
-   - Marca la casilla **"Ejecutar con los privilegios más altos"**.
+   - Name: `Monitor Docker PI`.
+   - Check the box  **"Run with highest privilege"**.
 
-2. **Desencadenador (Trigger):**
-   - Haz clic en **Nuevo**.
-   - Elige **Al iniciar** o **Diariamente** según prefieras.
-   - Marca **Repetir cada 5 minutos** y selecciona **Indefinidamente**.
+2. **Trigger:**
+   - Click on **New**.
+   - Choose **At startup**.
+   - Check **Repeat every 5 minutes** and select **Indefinitely**.
 
 3. **Acción:**
-   - Haz clic en **Nuevo**.
-   - En **Programa/script**, selecciona el archivo `.bat` que generaste.
+   - Click on **New**.
+   - In  **Program/script**, select the `.bat` file you generated.
 
 ---
 
-### ✅ Paso 3: Guardar y Ejecutar
+### ✅ Step 3: Save and Run
 
-1. Haz clic en **Aceptar** para guardar la configuración.
-2. ¡Listo! El monitoreo se ejecutará automáticamente cada 5 minutos.
+1. Click **OK** to save the configuration.
+2. Done! The monitoring will run automatically every 5 minutes.
 
 ---
 
-## 📣 Contribuciones
+## 📣 Contributions
 
-¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar este proyecto, no dudes en abrir un **Pull Request** o **Issue**.
+Contributions are welcome! If you have ideas to improve this project, feel free to open a **Pull Request** or **Issue**.
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia **MIT**.
+This project is licensed under the **MIT**.
 
----
-
-💬 **¿Dudas o sugerencias?**  
-¡Contáctame en [Telegram](https://t.me/MyPythonBot_bot)!
