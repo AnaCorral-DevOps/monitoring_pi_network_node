@@ -44,7 +44,7 @@ pip install requests
 Copy this repository to your local machine:
 
 ```bash
-git clone https://github.com/AnaCorral-DevOps/monitoring_pi_network_node.git
+git clone https://github.com/AvispaCoder/monitoring_pi_network_node.git
 ```
 
 ---
